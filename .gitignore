@@ -1,0 +1,22 @@
+#Ignorar los siguientes archivos y carpetas
+
+# ===== Python =====
+#Carpeta de entorno virtual
+venv/     
+#Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# ===== VSCode =====
+#settings personales de VSCode
+.vscode/
+
+# ===== Conf. local + info sensible =====
+#Datos secretos (contraseñas, etc) + config local
+.env
+config_local.py
+
+# ===== Windows =====
+thumbs.db
+desktop.ini
+
