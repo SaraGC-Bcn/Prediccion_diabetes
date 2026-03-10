@@ -1,7 +1,29 @@
+'''==== ARCHIVO PARA REALIZAR LAS TRANSFORMACIONES NECESARIAS ANTES DE APLICAR EL MODELO ====
+Este archivo contiene el pipeline para realizar la predicción con el modelo entrenado
+y los datos transofrmados. También contiene la función para limpiar los datos raw SOLO PARA
+ENTRENAR AL MODELO, no se aplica cuando vamos a predecir con nuevos datos. '''
+
 import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import RobustScaler
+
+def cleaning_training_data (X):
+    '''Funcion que elimina filas duplicadas del dataset y las lineas con 3 o más valores
+    0 en las columnas de Glucose, BloodPressure, SkinThickness, Insulin y BMI, las columnas 
+    que no pueden tomar valor 0.
+    Esta función SOLO se aplica cuando vamos a entrenar al modelo.'''
+    X = X.copy()
+    #Elimina duplicados
+    X = X.drop_duplicates()
+    #Columnas que no pueden tomar valor 0
+    cols_no_zero = ['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']
+    #Elimina filas con más de 3 valores 0 en las columnas que no pueden tomar valor 0.
+    mask = (X[cols_no_zero] == 0).sum(axis=1) >= 3
+    X = X.loc[~mask]
+    return X
+
+
 
 def apply_domain_rules(X):
     '''Función para aplicar reglas de dominio a todas las variables, reemplazando los valores que 
