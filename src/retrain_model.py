@@ -1,6 +1,6 @@
 '''==== ARCHIVO PARA REENTRENAR EL MODELO CON TODOS LOS DATOS DE ORIGEN ====
-Este archivo contienen todas las instrucciones para reentrenar el modelo
-cn todos los datos de origen. '''
+Este archivo contiene todas las instrucciones para reentrenar el modelo
+con todos los datos de origen. '''
 
 import sys
 from pathlib import Path
@@ -17,7 +17,7 @@ import joblib
 #cargar los datos de origen
 data_raw = pd.read_csv('data/raw/diabetes_original.csv')
 
-#realizamos limpieza de lineas duplicadas y aquellas con 3 o más valores 0 en las columnas que no pueden tomarlo
+#realizamos limpieza de líneas duplicadas y aquellas con 3 o más valores 0 en las columnas que no pueden tomarlo
 data_clean = cleaning_training_data(data_raw)
 
 #separamos X e y
