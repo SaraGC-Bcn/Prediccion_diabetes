@@ -27,7 +27,7 @@ def predict_diabetes(X: pd.DataFrame) -> tuple[str, float]:
     prediction = model.predict(X_transformada)[0]
     probability = model.predict_proba(X_transformada)[0][1]
 
-    label = 'es posible que TENGA DIABETES' if prediction == 1 else 'es posible que NO TENGA DIABETES'
+    label = 'Diabetes' if prediction == 1 else 'No Diabetes'
 
     return label, probability
 
