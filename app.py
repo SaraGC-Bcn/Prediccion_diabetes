@@ -18,8 +18,8 @@ def main():
 
     #título y descripción de lo que hace la pagina (titulo coloreado usando markdown HTML)
     st.markdown("<h1 style='color:#00aeef;'>Predicción del riesgo de tener diabetes</h1>", unsafe_allow_html=True)
-    st.write(""" Esta aplicación permite conocer el riesgo de un paciente de tener diabetes en un futuro.
-            Para conocer el riesgo, es necesario completar los siguientes campos y pulsar el botón de predicción. 
+    st.write(""" Esta aplicación permite estimar la probabilidad de tener diabetes a partir de los datos introducidos. 
+             Para conocer esa probabilidad, es necesario completar los siguientes campos y pulsar el botón de predicción. 
     """)
 
     #incluimos el subtítulo para introducir los datos a completar por el usuario
@@ -34,11 +34,11 @@ def main():
         age = st.number_input('Edad (años)', value=0)
         pregnancies = st.number_input('Número de embarazos', value=0)
         bmi = st.number_input('Índice de masa corporal', value=0.0)
-        skin_thickness = st.number_input('Grosor del pliegue cutáneo del triceps (mm)', value=0)
+        skin_thickness = st.number_input('Grosor del pliegue cutáneo del tríceps (mm)', value=0)
         
     with col4:
         blood_pressure = st.number_input('Presión arterial diastólica (la más baja)(mmHg)', value=0)
-        glucose = st.number_input('Concentración de glucosa (pasadas 2h)', value=0)
+        glucose = st.number_input('Concentración de glucosa a las 2h', value=0)
         diabetes_pedigree_function = st.number_input('Función de pedigrí de diabetes', value=0.0)
         insulin = st.number_input('Insulina en serum a las 2h (mu U/ml)', value=0)
 
@@ -70,7 +70,7 @@ def main():
             #Tercero: mostramos el resultado al usuario
             col4, col5, col6 = st.columns([1,3,2]) #columna vacía para separar las otras dos
         
-            if label =='Diabetes':
+            if label == 'Diabetes':
                 col5.subheader('Es posible que el paciente :red[tenga Diabetes]',divider="red", text_alignment="center")
             else:
                 col5.subheader('Es posible que el paciente :green[no tenga Diabetes]', divider="green", text_alignment="center")
@@ -82,16 +82,14 @@ def main():
                 col5.subheader(f'Probabilidad de tener diabetes: :green[{probability:.1%}]', text_alignment="center")
             
             st.write('---') #línea divisoria entre el resultado y la advertencia sobre la base de datos 
-            
-        except Exception as e:
-            st.error(f"Error al realizar la predicción: {e}")   
-
-    st.write('') #espacio entre el resultado y la advertencia sobre la base de datos
-    st.markdown('''🚨La base de datos con la que se ha entrenado el modelo solo contempla mujeres 
+            st.write('') #espacio entre el resultado y la advertencia sobre la base de datos
+            st.markdown('''🚨La base de datos con la que se ha entrenado el modelo solo contempla mujeres 
                     mayores de 21 años de ascendencia indígena Pima, por lo que **la predicción puede no ser 
                     tan precisa para otros grupos de población**. Además, si no se completan correctamente todos
                     los campos, también puede disminuir la fiabilidad del modelo. ''', text_alignment="center")
-        
+            
+        except Exception as e:
+            st.error(f"Error al realizar la predicción: {e}")   
 
 if __name__ == "__main__":
     main()
