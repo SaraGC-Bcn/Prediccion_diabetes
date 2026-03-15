@@ -1,14 +1,16 @@
-# Proyecto de **Predicción de Diabetes**
+# Proyecto de Predicción de Diabetes
 
-Este proyecto calcula la probabilidad de si un paciente tendrá o no diabetes en base a una serie de informaciones médicas aportadas. Aplica un modelo de Machine Learning entrenado a partir de un dataset de Kaggle con datos de mujeres de ascendencia indígena Pima ( [https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/data](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/data) )
+Este proyecto estima la probabilidad de que un paciente tenga o no diabetes a partir de una serie de variables médicas aportadas. Aplica un modelo de Machine Learning entrenado a partir de un dataset de Kaggle con [datos de mujeres de ascendencia indígena Pima](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/data).
 
 ## Aplicación web
+Puedes probar la aplicación en el enlace siguiente:
 [https://prediccion-diabetes-sgc.streamlit.app/](https://prediccion-diabetes-sgc.streamlit.app/)
 
 ## Interfaz de la aplicación
-
+### Pantalla inicial
 ![Interfaz inicial](images/prediccion1.jpg)
 
+### Pantalla con la predicción
 ![Interfaz con la predicción](images/prediccion2.jpg)
 
 
@@ -28,7 +30,7 @@ Este proyecto calcula la probabilidad de si un paciente tendrá o no diabetes en
 ├── data/
 │   ├── processed/     # Datos procesados
 │   └── raw/           # Datos sin procesar
-├── images/            # Imágenes para Readme 
+├── images/            # Imágenes para README 
 ├── models/            # Modelos entrenados
 ├── notebooks/         # Jupyter notebooks para análisis y desarrollo
 ├── reports/           # Informes elaborados durante el EDA
@@ -65,6 +67,11 @@ venv\Scripts\activate     # En Windows
 pip install -r requirements.txt
 ```
 
+5. Ejecutar la aplicación:
+```bash
+streamlit run app.py
+```
+
 ## Uso
 
 1. El análisis exploratorio, la transformación de los datos y el desarrollo del modelo se encuentra en los notebooks, en la carpeta `notebooks/`.
@@ -73,6 +80,7 @@ pip install -r requirements.txt
 1. La aplicación en Streamlit se encuentra en  `app.py`, directamente en la raíz del proyecto.
 
 ## Métricas
+Resultados obtenidos con el modelo entrenado y el conjunto de test:
 - Accuracy: 0.76
 - Recall: 0.75
 - Precision: 0.62
@@ -86,9 +94,9 @@ Sara García Castañeda
 
 Barcelona, Spain
 
-LinkedIn: [www.linkedin.com/in/sara-garcia-castaneda](www.linkedin.com/in/sara-garcia-castaneda)
+LinkedIn: [www.linkedin.com/in/sara-garcia-castaneda](https://www.linkedin.com/in/sara-garcia-castaneda)
 
-Github: [https://github.com/SaraGC-Bcn](https://github.com/SaraGC-Bcn)
+Github: [www.github.com/SaraGC-Bcn](https://github.com/SaraGC-Bcn)
 
 
 ## Licencia
